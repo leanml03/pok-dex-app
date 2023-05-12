@@ -1,0 +1,126 @@
+
+body{
+    font-family:  Arial, sans-serif;
+    color: white;
+    background-color: #e34040;
+
+}
+.pokedex-box{
+    display: flex;
+    
+}
+
+
+
+
+
+.scroll-box{
+ width: 21rem;
+ height: 50rem;
+ overflow: auto; 
+ background-color: #700808;
+ border-radius: 0.5rem;
+ color: white;
+ 
+ 
+
+ scrollbar-color: #e34040 #b13333;
+ scrollbar-width: thin;
+ scrollbar-color: transparent transparent; 
+}
+.scroll-box::-webkit-scrollbar {
+  /* Ancho del scrollbar para navegadores WebKit */
+  width: 1.1rem; 
+  border-radius: 0.5rem;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+    background-color: #e34040; /* Color del thumb (agarre del scrollbar) */
+    border-radius: 0.3rem;
+    border: none;
+}
+.scroll-box::-webkit-scrollbar-track {
+    background-color: #b13333; /* Color del track (fondo del scrollbar) */
+    border-radius: 0.5rem;
+}
+.scroll-box .button-style{
+    display: flex; /* Mostrar el contenido en línea */
+    align-items: center; /* Alinear verticalmente el contenido al centro */
+    color: white;
+    background-color: #480202;
+    width: 20rem;
+    height: 5rem;
+    margin-top: 0.06rem;
+    font-weight: bolder;
+    text-align: left;
+    border: none; /* Quita los bordes del botón */
+    
+}
+.scroll-box .button-style:active{
+    background-color: #700808;
+}
+
+.scroll-box .button-style:hover{
+    background-color: #e34040;
+}
+.scroll-box .button-style.clicked{
+    background-color: #700808;
+}
+.pokemon-icon {
+    width: 70px; /* Ajusta el ancho del sprite según tus necesidades */
+    height: 50px; /* Ajusta la altura del sprite según tus necesidades */
+    margin-bottom: 1rem;
+}
+.pokemon-number{
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+
+
+
+.info-box {
+
+    width: 50rem;
+    height: 50rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-left: 2rem;
+    
+    color: black;
+  }
+.info-box .information{
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Ajusta la distribución de filas */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "pokemon-data pokemon-details"
+      "pokemon-type pokemon-type"
+      "pokemon-evolution pokemon-evolution";
+    text-indent: 2rem;
+    margin-top: 1rem;
+}
+  .pokemon-data {
+    grid-area: pokemon-data;
+  }
+  
+  .pokemon-details {
+    grid-area: pokemon-details;
+  }
+  
+  .pokemon-type {
+    grid-area: pokemon-type;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .pokemon-evolution {
+    margin-top: 2rem;
+    padding: 2rem;
+    grid-area: pokemon-evolution;
+  }
+  .pokemon-image {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+  }
