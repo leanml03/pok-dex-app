@@ -9,6 +9,7 @@ async function loadMorePokemon() {
     return;
   }
 
+
   isLoading = true;
 
   try {
@@ -45,13 +46,12 @@ function handleScroll() {
 
 // Función para cargar los datos iniciales de los primeros Pokémon
 export async function loadPokemonData() {
+
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
     const data = await response.json();
-
     const pokemonList = document.getElementById('pokemon-list');
     pokemonList.innerHTML = ''; // Limpiar la lista antes de cargar nuevos datos
-
     data.results.forEach(async (pokemon) => {
       const pokemonData = await fetchPokemonData(pokemon.url);
       const pokemonButton = createPokemonButton(pokemonData);
@@ -66,6 +66,7 @@ export async function loadPokemonData() {
   } catch (error) {
     console.log('Error:', error);
   }
+  
 }
 
 // Función para obtener los datos de un Pokémon específico
@@ -73,9 +74,36 @@ async function fetchPokemonData(url) {
   const response = await fetch(url);
   return response.json();
 }
+searchPokemon();
+async function searchPokemon(){
+  try{
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
+    const data = await response.json();
+    const searchInput = document.querySelector('.search_input'); // Search Input and button elements
+    const searchButton = document.getElementById('btn-search');
+    const pokemonListElement = document.getElementById('pokemon-list');
+    searchInput.addEventListener('input', () => { // Event to get the current string in the input
+      const searchTerm = searchInput.value.toLowerCase();
+      if(searchTerm===''){
+        pokemonListElement.innerHTML = ''; 
+        loadPokemonData();
+      }
+      else{
+        const matchedPokemons = data.results.filter(pokemon => pokemon.name.toLowerCase().startsWith(searchTerm));
+        displaySearchResults(matchedPokemons);
+      }
+
+    });
+  } catch{
+    console.log("ERROR All Pokemon API Fetch");
+  }
+  //Get all the pokemons in the API to search specific specie
+  
+  
+}
 
           // Search functionality  
-async function searchPokemon(data) {
+async function searchPokemox(data) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
     const datax = await response.json();
 
@@ -142,12 +170,21 @@ async function searchPokemon(data) {
 
 function displaySearchResults(pokemons) {
   const pokemonListElement = document.getElementById('pokemon-list');
+  
   pokemonListElement.innerHTML = ''; // Clear the existing Pokémon list
-  const pokemonPromises = pokemons.map(pokemon => {
-    return fetch(pokemon.url)
-      .then(response => response.json())
-      .then(pokemonData => createPokemonButton(pokemonData));
-  });
+  
+  
+    const pokemonPromises = pokemons.map(pokemon => {
+      console.log(pokemon.url); 
+      return fetch(pokemon.url)
+        .then(response => response.json())
+        .then(pokemonData => createPokemonButton(pokemonData));
+    });
+
+  
+    
+
+  
 
   Promise.all(pokemonPromises)
     .then(pokemonButtons => {
@@ -158,6 +195,7 @@ function displaySearchResults(pokemons) {
     .catch(error => {
       console.log('Error:', error);
     });
+    
 }
 
 
