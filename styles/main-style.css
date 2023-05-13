@@ -1,6 +1,6 @@
 
 body{
-    font-family:  'Open Sans', Arial, sans-serif;
+    font-family:"Calibri", sans-serif;
     color: white;
     background-color: #e34040;
 
@@ -15,8 +15,8 @@ body{
 
 
 .scroll-box{
- width: 21rem;
- height: 50rem;
+ width: 27rem;
+ height: 57rem;
  overflow: auto; 
  background-color: #700808;
  border-radius: 0.5rem;
@@ -32,10 +32,19 @@ body{
 .scroll-box ul{
   margin-left: -2.6rem;
   margin-top: 0.1rem;
+  
+}
+.scroll-box span{
+  font-weight: 550;
+  font-size: 1rem;
+}
+.scroll-box .pokemon-number{
+  font-weight: lighter;
+  font-size: 0.7rem;
 }
 .scroll-box::-webkit-scrollbar {
   /* Ancho del scrollbar para navegadores WebKit */
-  width: 1.1rem; 
+  width: 1.2rem; 
   border-radius: 0.5rem;
 }
 .scroll-box::-webkit-scrollbar-thumb {
@@ -52,7 +61,7 @@ body{
     align-items: center; /* Alinear verticalmente el contenido al centro */
     color: white;
     background-color: #480202;
-    width: 20rem;
+    width: 25.6rem;
     height: 5rem;
     margin-top: 0.07rem;
     font-weight: bolder;
@@ -71,9 +80,11 @@ body{
     background-color: #700808;
 }
 .pokemon-icon {
-    width: 70px; /* Ajusta el ancho del sprite según tus necesidades */
-    height: 50px; /* Ajusta la altura del sprite según tus necesidades */
-    margin-bottom: 1rem;
+    width: 50px; /* Ajusta el ancho del sprite según tus necesidades */
+    height: 40px; /* Ajusta la altura del sprite según tus necesidades */
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .pokemon-number{
     margin-left: auto;
@@ -87,8 +98,8 @@ body{
     flex-direction: column;
     display: flexbox;
     align-items: center;
-    width: 70rem;
-    height: 50rem;
+    width: 88rem;
+    height: 57rem;
     background-color: white;
     border-radius: 0.5rem;
     margin-left: 2rem;
@@ -125,7 +136,7 @@ body{
   .evolution-title{
     grid-area: pokemon-evolution;
     display: flex;
-   text-indent  : 32rem;
+   text-indent  : 40rem;
    margin: -1rem;
    
 
@@ -134,9 +145,11 @@ body{
     content: "";
     position: absolute;
     left: 25%;
-    right: 18%;
-    top: 43%;
-    border-top: 0.15rem solid #e34040;
+    right: 0%;
+    top: 44%;
+    border-top: 0.15rem solid;
+    border-image: linear-gradient(to right, transparent, #e34040, transparent);
+    border-image-slice: 1;
   }
   
   .pokemon-evolution {
@@ -164,38 +177,22 @@ body{
 
   
   .evolution-image{
-    width: 6rem; /* Ajusta el ancho de la imagen según tus necesidades */
+    width: 9.5rem; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; 
   }
   .evolution-arrow {
     position: relative;
+    width: 50px;
+    height: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23e34040' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0' /%3E%3Cpath d='M15 16l4 -4' /%3E%3Cpath d='M15 8l4 4' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    top: 5rem;
+    background-size: contain;
   }
+  
   
 
-  .evolution-arrow::before {
-    content: '';
-    position: absolute;
-    top: 52.5%;
-    left: 100%;
-    transform: translateY(-50%);
-    transform: translateX(-80%);
-    width:3rem;
-    height: 0.15rem;
-    background-color: red;
-  }
   
-  .evolution-arrow::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 110%;
-    transform: translateY(-50%);
-    width: 0.5rem;
-    height: 0.5rem;
-    border-top: 0.2rem solid #e34040;
-    border-right: 0.2rem solid #e34040;
-    transform: rotate(45deg);
-  }
   .info-box .search {
     grid-area: pokemon-details;
     display: flex;

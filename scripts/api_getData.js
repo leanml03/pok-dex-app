@@ -8,7 +8,7 @@ export function loadPokemonData() {
         const pokemonDetailsElement=document.querySelector('.pokemon-details');
         const pokemonEvolutionElement=document.querySelector('.pokemon-evolution');
         const evolutionTitleElement=document.querySelector('.evolution-title');
-
+        
 
 
             // Obtén la referencia al elemento de entrada de búsqueda y al botón de búsqueda
@@ -202,24 +202,24 @@ export function loadPokemonData() {
 
           
 function displaySearchResults(pokemons) {
-    pokemonListElement.innerHTML = ''; // Limpiamos la lista de Pokémon existente
-  
-    const pokemonPromises = pokemons.map(pokemon => {
-      return fetch(pokemon.url)
-        .then(response => response.json())
-        .then(pokemonData => createPokemonButton(pokemonData));
-    });
-  
-    Promise.all(pokemonPromises)
-      .then(pokemonButtons => {
-        pokemonButtons.forEach(pokemonButton => {
-          pokemonListElement.appendChild(pokemonButton);
-        });
-      })
-      .catch(error => {
-        console.log('Error:', error);
+  pokemonListElement.innerHTML = ''; // Limpiamos la lista de Pokémon existente
+
+  const pokemonPromises = pokemons.map(pokemon => {
+    return fetch(pokemon.url)
+      .then(response => response.json())
+      .then(pokemonData => createPokemonButton(pokemonData));
+  });
+
+  Promise.all(pokemonPromises)
+    .then(pokemonButtons => {
+      pokemonButtons.forEach(pokemonButton => {
+        pokemonListElement.appendChild(pokemonButton);
       });
-  }
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
+}
     })
     .catch(error => {
       console.log('Error:', error);
