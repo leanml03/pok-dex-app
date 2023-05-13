@@ -21,12 +21,17 @@ body{
  background-color: #700808;
  border-radius: 0.5rem;
  color: white;
+ border: 0.2rem solid #ff8585;
  
  
 
  scrollbar-color: #e34040 #b13333;
  scrollbar-width: thin;
  scrollbar-color: transparent transparent; 
+}
+.scroll-box ul{
+  margin-left: -2.6rem;
+  margin-top: 0.1rem;
 }
 .scroll-box::-webkit-scrollbar {
   /* Ancho del scrollbar para navegadores WebKit */
@@ -49,7 +54,7 @@ body{
     background-color: #480202;
     width: 20rem;
     height: 5rem;
-    margin-top: 0.06rem;
+    margin-top: 0.07rem;
     font-weight: bolder;
     text-align: left;
     border: none; /* Quita los bordes del botón */
@@ -89,6 +94,8 @@ body{
     margin-left: 2rem;
     
     color: black;
+    border: 0.2rem solid #ff8585;
+;
   }
 .info-box .information{
     display: grid;
@@ -141,7 +148,7 @@ body{
   }
 
   .pokemon-image {
-    width: 230px; /* Ajusta el ancho de la imagen según tus necesidades */
+    width: 240px; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
   }
   .evolution-stage{
@@ -157,7 +164,7 @@ body{
 
   
   .evolution-image{
-    width: 7rem; /* Ajusta el ancho de la imagen según tus necesidades */
+    width: 6rem; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; 
   }
   .evolution-arrow {
@@ -189,15 +196,20 @@ body{
     border-right: 0.2rem solid #e34040;
     transform: rotate(45deg);
   }
-  .info-box .search{
+  .info-box .search {
+    grid-area: pokemon-details;
     display: flex;
+    justify-content: flex-end; /* Alinear a la derecha */
     margin-left: auto;
     margin-right: 1rem;
-    
-    
+    border-color: white;
+    margin-top: 0.5rem;
   }
   
-  .info-box .search button{
+  .info-box .search button {
     background-color: white;
     border: none;
+  }
+  .info-box .search input{
+    border-color: transparent;
   }

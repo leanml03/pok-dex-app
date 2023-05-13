@@ -1,5 +1,5 @@
 export function loadPokemonData() {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=915')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
       .then(response => response.json())
       .then(data => {
         const pokemonListElement = document.getElementById('pokemon-list');
@@ -39,8 +39,23 @@ export function loadPokemonData() {
         }
         });
 
-
-
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const matchedPokemons = data.results.filter(pokemon => pokemon.name.toLowerCase().startsWith(searchTerm));
+            displaySearchResults(matchedPokemons);
+          });
+    
+          data.results.forEach(pokemon => {
+            fetch(pokemon.url)
+              .then(response => response.json())
+              .then(pokemonData => {
+                const pokemonButton = createPokemonButton(pokemonData);
+                pokemonListElement.appendChild(pokemonButton);
+              })
+              .catch(error => {
+                console.log('Error:', error);
+              });
+          });
 
 
 
@@ -57,19 +72,7 @@ export function loadPokemonData() {
 
 
         let selectedButton = null;
-  
-        data.results.forEach(pokemon => {
-          fetch(pokemon.url)
-            .then(response => response.json())
-            .then(pokemonData => {
-              const pokemonButton = createPokemonButton(pokemonData);
-              pokemonListElement.appendChild(pokemonButton);
-            })
-            .catch(error => {
-              console.log('Error:', error);
-            });
-        });
-  
+
         function createPokemonButton(pokemonData) {
           const pokemonButton = document.createElement('button');
           const pokemonIcon = getPokemonIcon(pokemonData);
@@ -170,41 +173,52 @@ export function loadPokemonData() {
           
           
           function getEvolutionChain(evolutionChainData) {
-            let evolutionChain = '';
-          
-            const processEvolution = (evolutionData) => {
-              const pokemonName = evolutionData.species.name;
-              const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolutionData.species.url.split('/').slice(-2, -1)}.png`;
-              
-              evolutionChain += `
-                
-                    <div class="evolution-stage">
-                    <img src="${pokemonImageUrl}" alt="${pokemonName}" class="evolution-image">
-                    <p>${pokemonName}</p>
-                    </div>
-                
-              `;
-          
-              if (evolutionData.evolves_to.length > 0) {
-                evolutionChain += '<div class="evolution-arrow"></div>';
-                
-                evolutionData.evolves_to.forEach(evolution => {
-                  processEvolution(evolution);
-                });
-              }
-            };
-          
-            processEvolution(evolutionChainData.chain);
-          
-            return evolutionChain;
-          }
-          
-          
-          
-      })
-      .catch(error => {
-        console.log('Error:', error);
+  let evolutionChain = '';
+
+  const processEvolution = (evolutionData) => {
+    const pokemonName = capitalizeFirstLetter(evolutionData.species.name);
+    const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolutionData.species.url.split('/').slice(-2, -1)}.png`;
+
+    evolutionChain += `
+      <div class="evolution-stage">
+        <img src="${pokemonImageUrl}" alt="${pokemonName}" class="evolution-image">
+        <p>${pokemonName}</p>
+      </div>
+    `;
+
+    if (evolutionData.evolves_to.length > 0) {
+      evolutionChain += '<div class="evolution-arrow"></div>';
+
+      evolutionData.evolves_to.forEach(evolution => {
+        processEvolution(evolution);
       });
+    }
+  };
+
+  processEvolution(evolutionChainData.chain);
+
+  return evolutionChain;
+}
+
+          
+function displaySearchResults(pokemons) {
+        pokemonListElement.innerHTML = ''; // Limpiamos la lista de Pokémon existente
+        pokemons.forEach(pokemon => {
+          fetch(pokemon.url)
+            .then(response => response.json())
+            .then(pokemonData => {
+              const pokemonButton = createPokemonButton(pokemonData);
+              pokemonListElement.appendChild(pokemonButton);
+            })
+            .catch(error => {
+              console.log('Error:', error);
+            });
+        });
+      }
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
 
       
 
