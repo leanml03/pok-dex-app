@@ -120,8 +120,8 @@ export function loadPokemonData() {
             };
           
             const types = pokemonData.types.map(type => capitalizeFirstLetter(type.type.name)).join(' ');
-            const weight = pokemonData.weight;
-            const height = pokemonData.height;
+            const weight = (pokemonData.weight/10).toLocaleString();;
+            const height = (pokemonData.height/10).toLocaleString();;
             const species = capitalizeFirstLetter(pokemonData.species.name);
           
             fetch(pokemonData.species.url)
@@ -142,8 +142,8 @@ export function loadPokemonData() {
                     `;
                     pokemonDetailsElement.innerHTML = `
                       <h2 style="font-weight: bold;">Information</h2>
-                      <p><strong>Weight:</strong> ${weight}</p>
-                      <p><strong>Height:</strong> ${height}</p>
+                      <p><strong>Weight:</strong> ${weight} kg</p>
+                      <p><strong>Height:</strong> ${height} cm's</p>
                       <p><strong>Species:</strong> ${species}</p>
                       <p><strong>Egg Groups:</strong> ${eggGroups}</p>
                       <p><strong>Abilities:</strong> ${abilities}</p>
@@ -202,19 +202,24 @@ export function loadPokemonData() {
 
           
 function displaySearchResults(pokemons) {
-        pokemonListElement.innerHTML = ''; // Limpiamos la lista de Pokémon existente
-        pokemons.forEach(pokemon => {
-          fetch(pokemon.url)
-            .then(response => response.json())
-            .then(pokemonData => {
-              const pokemonButton = createPokemonButton(pokemonData);
-              pokemonListElement.appendChild(pokemonButton);
-            })
-            .catch(error => {
-              console.log('Error:', error);
-            });
+    pokemonListElement.innerHTML = ''; // Limpiamos la lista de Pokémon existente
+  
+    const pokemonPromises = pokemons.map(pokemon => {
+      return fetch(pokemon.url)
+        .then(response => response.json())
+        .then(pokemonData => createPokemonButton(pokemonData));
+    });
+  
+    Promise.all(pokemonPromises)
+      .then(pokemonButtons => {
+        pokemonButtons.forEach(pokemonButton => {
+          pokemonListElement.appendChild(pokemonButton);
         });
-      }
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
+  }
     })
     .catch(error => {
       console.log('Error:', error);
