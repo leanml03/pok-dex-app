@@ -1,5 +1,5 @@
 export function loadPokemonData() {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=915')
       .then(response => response.json())
       .then(data => {
         const pokemonListElement = document.getElementById('pokemon-list');
@@ -7,6 +7,55 @@ export function loadPokemonData() {
         const pokemonDataElement=document.querySelector('.pokemon-data');
         const pokemonDetailsElement=document.querySelector('.pokemon-details');
         const pokemonEvolutionElement=document.querySelector('.pokemon-evolution');
+        const evolutionTitleElement=document.querySelector('.evolution-title');
+
+
+
+            // Obtén la referencia al elemento de entrada de búsqueda y al botón de búsqueda
+        const searchInput = document.querySelector('.search_input');
+        const searchButton = document.getElementById('btn-search');
+
+        // Agrega un evento de clic al botón de búsqueda
+        searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.toLowerCase(); // Obtiene el término de búsqueda ingresado
+        
+        // Busca el término en los datos de los Pokémon
+        const matchedPokemon = data.results.find(pokemon => pokemon.name.toLowerCase() === searchTerm);
+        
+        if (matchedPokemon) {
+            // Si se encuentra un Pokémon coincidente, muestra su información
+            fetch(matchedPokemon.url)
+            .then(response => response.json())
+            .then(pokemonData => {
+                showPokemonInfo(pokemonData);
+            })
+            .catch(error => {
+                console.log('Error:', error);
+            });
+        } else {
+            // Si no se encuentra un Pokémon coincidente, muestra un mensaje de error
+            alert("No pokemon has been registered with this name.")
+
+        }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         let selectedButton = null;
   
         data.results.forEach(pokemon => {
@@ -63,40 +112,52 @@ export function loadPokemonData() {
         }
   
         function showPokemonInfo(pokemonData) {
-            const types = pokemonData.types.map(type => type.type.name).join(', ');
+            const capitalizeFirstLetter = (string) => {
+              return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+            };
+          
+            const types = pokemonData.types.map(type => capitalizeFirstLetter(type.type.name)).join(' ');
             const weight = pokemonData.weight;
             const height = pokemonData.height;
-            const species = pokemonData.species.name;
+            const species = capitalizeFirstLetter(pokemonData.species.name);
           
-            // Obtener los grupos de huevo
             fetch(pokemonData.species.url)
               .then(response => response.json())
               .then(speciesData => {
-                const eggGroups = speciesData.egg_groups.map(group => group.name).join(', ');
+                const eggGroups = speciesData.egg_groups.map(group => capitalizeFirstLetter(group.name)).join(', ');
           
                 // Obtener las habilidades
                 const abilitiesPromises = pokemonData.abilities.map(ability => fetch(ability.ability.url).then(response => response.json()));
                 Promise.all(abilitiesPromises)
                   .then(abilitiesData => {
-                    const abilities = abilitiesData.map(data => data.name).join(', ');
+                    const abilities = abilitiesData.map(data => capitalizeFirstLetter(data.name)).join(', ');
           
                     pokemonDataElement.innerHTML = `
-                      <span style="font-weight: bold;">Information</span>
-                      <p>Name: ${pokemonData.name}</p>
-                      <p>Types: ${types}</p>
-                      <p>Weight: ${weight}</p>
-                      <p>Height: ${height}</p>
-                      <p>Species: ${species}</p>
-                      <p>Egg Groups: ${eggGroups}</p>
-                      <p>Abilities: ${abilities}</p>
+                      <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}" class="pokemon-image">
+                      <h1>${capitalizeFirstLetter(pokemonData.name)}</h1>
+                      <p>${types}</p>
+                    `;
+                    pokemonDetailsElement.innerHTML = `
+                      <h2 style="font-weight: bold;">Information</h2>
+                      <p><strong>Weight:</strong> ${weight}</p>
+                      <p><strong>Height:</strong> ${height}</p>
+                      <p><strong>Species:</strong> ${species}</p>
+                      <p><strong>Egg Groups:</strong> ${eggGroups}</p>
+                      <p><strong>Abilities:</strong> ${abilities}</p>
                     `;
           
-                    const pokemonImage = document.createElement('img');
-                    pokemonImage.src = pokemonData.sprites.other['official-artwork'].front_default;
-                    pokemonImage.alt = pokemonData.name;
-                    pokemonImage.classList.add('pokemon-image'); // Agregar la clase "pokemon-image"
-                    pokemonDataElement.appendChild(pokemonImage);
-                    
+                    fetch(speciesData.evolution_chain.url)
+                      .then(response => response.json())
+                      .then(evolutionChainData => {
+                        const evolutionChain = getEvolutionChain(evolutionChainData);
+                        evolutionTitleElement.innerHTML = `Evolution Chart`;
+                        pokemonEvolutionElement.innerHTML = `
+                          ${evolutionChain}
+                        `;
+                      })
+                      .catch(error => {
+                        console.log('Error:', error);
+                      });
                   })
                   .catch(error => {
                     console.log('Error:', error);
@@ -107,11 +168,45 @@ export function loadPokemonData() {
               });
           }
           
+          
+          function getEvolutionChain(evolutionChainData) {
+            let evolutionChain = '';
+          
+            const processEvolution = (evolutionData) => {
+              const pokemonName = evolutionData.species.name;
+              const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolutionData.species.url.split('/').slice(-2, -1)}.png`;
+              
+              evolutionChain += `
+                
+                    <div class="evolution-stage">
+                    <img src="${pokemonImageUrl}" alt="${pokemonName}" class="evolution-image">
+                    <p>${pokemonName}</p>
+                    </div>
+                
+              `;
+          
+              if (evolutionData.evolves_to.length > 0) {
+                evolutionChain += '<div class="evolution-arrow"></div>';
+                
+                evolutionData.evolves_to.forEach(evolution => {
+                  processEvolution(evolution);
+                });
+              }
+            };
+          
+            processEvolution(evolutionChainData.chain);
+          
+            return evolutionChain;
+          }
+          
+          
+          
       })
       .catch(error => {
         console.log('Error:', error);
       });
 
+      
 
 
 

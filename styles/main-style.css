@@ -1,6 +1,6 @@
 
 body{
-    font-family:  Arial, sans-serif;
+    font-family:  'Open Sans', Arial, sans-serif;
     color: white;
     background-color: #e34040;
 
@@ -79,8 +79,10 @@ body{
 
 
 .info-box {
-
-    width: 50rem;
+    flex-direction: column;
+    display: flexbox;
+    align-items: center;
+    width: 70rem;
     height: 50rem;
     background-color: white;
     border-radius: 0.5rem;
@@ -101,26 +103,101 @@ body{
 }
   .pokemon-data {
     grid-area: pokemon-data;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    word-spacing: 8rem;
   }
   
   .pokemon-details {
     grid-area: pokemon-details;
+    margin-bottom: 9rem;
   }
   
-  .pokemon-type {
-    grid-area: pokemon-type;
-    background-color: #f2f2f2;
-    padding: 1rem;
-    text-align: center;
-    font-weight: bold;
+
+  .evolution-title{
+    grid-area: pokemon-evolution;
+    display: flex;
+   text-indent  : 32rem;
+   margin: -1rem;
+   
+
+  }
+  .evolution-title::before {
+    content: "";
+    position: absolute;
+    left: 25%;
+    right: 18%;
+    top: 43%;
+    border-top: 0.15rem solid #e34040;
   }
   
   .pokemon-evolution {
-    margin-top: 2rem;
-    padding: 2rem;
     grid-area: pokemon-evolution;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
   }
+
   .pokemon-image {
-    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    width: 230px; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+  }
+  .evolution-stage{
+    flex: 1 0 200px; /* Establece el ancho mínimo y máximo de cada etapa de evolución */
+    padding: 10px; /* Espacio entre las etapas de evolución */
+    box-sizing: border-box; /* Incluye el padding dentro del ancho del elemento */
+    text-align: center; /* Centra el contenido dentro de cada etapa de evolución */
+  }
+  .pokemon-evolution .evolution-stage img {
+    max-width: 100%; /* Establece el ancho máximo de las imágenes dentro de cada etapa */
+    height: auto; /* Permite que la altura de las imágenes se ajuste automáticamente */
+  }
+
+  
+  .evolution-image{
+    width: 7rem; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; 
+  }
+  .evolution-arrow {
+    position: relative;
+  }
+  
+
+  .evolution-arrow::before {
+    content: '';
+    position: absolute;
+    top: 52.5%;
+    left: 100%;
+    transform: translateY(-50%);
+    transform: translateX(-80%);
+    width:3rem;
+    height: 0.15rem;
+    background-color: red;
+  }
+  
+  .evolution-arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 0.2rem solid #e34040;
+    border-right: 0.2rem solid #e34040;
+    transform: rotate(45deg);
+  }
+  .info-box .search{
+    display: flex;
+    margin-left: auto;
+    margin-right: 1rem;
+    
+    
+  }
+  
+  .info-box .search button{
+    background-color: white;
+    border: none;
   }
