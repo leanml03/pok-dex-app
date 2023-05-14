@@ -104,15 +104,15 @@ The project is organized into the following files and folders:
 The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
 
 ### Functions and Algorithms
-* loadMorePokemon(): This function is responsible for loading more Pokémon when the scroll limit is reached in the list. It makes a connection to the PokeAPI API to get the Pokémon data and creates the corresponding buttons.
+* **loadMorePokemon():** This function is responsible for loading more Pokémon when the scroll limit is reached in the list. It makes a connection to the PokeAPI API to get the Pokémon data and creates the corresponding buttons.
 
-* handleScroll(): Basically dedicated to inspect the scroll, this function is triggered when the scroll event is detected in the pokemon-nav element (the Pokémon list). It checks if the end of the list has been reached and, if so, calls the loadMorePokemon() function to load more Pokémon.
+* **handleScroll():** Basically dedicated to inspect the scroll, this function is triggered when the scroll event is detected in the pokemon-nav element (the Pokémon list). It checks if the end of the list has been reached and, if so, calls the loadMorePokemon() function to load more Pokémon.
 
-* loadPokemonData(): This function is responsible for loading the initial Pokémon data. It makes a connection to the PokeAPI API to get the first 20 Pokémon and creates the corresponding buttons. It also sets the scroll event in pokemon-nav to load more Pokémon when needed.
+* **loadPokemonData():** This function is responsible for loading the initial Pokémon data. It makes a connection to the PokeAPI API to get the first 20 Pokémon and creates the corresponding buttons. It also sets the scroll event in pokemon-nav to load more Pokémon when needed.
 
-* fetchPokemonData(url): This function makes a connection to a Pokémon's specific URL and returns the Pokémon's data in JSON format.
+* **fetchPokemonData(url):** This function makes a connection to a Pokémon's specific URL and returns the Pokémon's data in JSON format.
 
-* searchPokemon(): This function allows you to search for specific Pokémon using an input field. It loads all available Pokémon and, as text is entered into the search field, filters the matching Pokémon and displays them in the list.
+* **searchPokemon():** This function allows you to search for specific Pokémon using an input field. It loads all available Pokémon and, as text is entered into the search field, filters the matching Pokémon and displays them in the list.
 
 * **displaySearchResults(pokemons):** This function displays the search results in the Pokémon list. It creates corresponding buttons for the filtered Pokémon and adds them to the list.
 
