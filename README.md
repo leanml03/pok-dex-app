@@ -103,6 +103,31 @@ The project is organized into the following files and folders:
 ### Integration with the PokeAPI: 
 The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
 
+### Functions and Algorithms
+* loadMorePokemon(): This function is responsible for loading more Pokémon when the scroll limit is reached in the list. It makes a connection to the PokeAPI API to get the Pokémon data and creates the corresponding buttons.
+
+* handleScroll(): Basically dedicated to inspect the scroll, this function is triggered when the scroll event is detected in the pokemon-nav element (the Pokémon list). It checks if the end of the list has been reached and, if so, calls the loadMorePokemon() function to load more Pokémon.
+
+* loadPokemonData(): This function is responsible for loading the initial Pokémon data. It makes a connection to the PokeAPI API to get the first 20 Pokémon and creates the corresponding buttons. It also sets the scroll event in pokemon-nav to load more Pokémon when needed.
+
+* fetchPokemonData(url): This function makes a connection to a Pokémon's specific URL and returns the Pokémon's data in JSON format.
+
+* searchPokemon(): This function allows you to search for specific Pokémon using an input field. It loads all available Pokémon and, as text is entered into the search field, filters the matching Pokémon and displays them in the list.
+
+* **displaySearchResults(pokemons):** This function displays the search results in the Pokémon list. It creates corresponding buttons for the filtered Pokémon and adds them to the list.
+
+* **createPokemonButton(pokemonData):** This function creates a button element for a specific Pokémon. It uses the Pokémon's data to set the Pokémon's icon, name, and number on the button.
+
+* **getPokemonIcon(pokemonData):** This function gets the URL of the Pokémon's icon. It uses the Pokémon's data to determine the Pokémon's generation and get the corresponding icon.
+
+* **capitalizeFirstLetter(string):** This function capitalizes the first letter of a text string.
+
+* **getPokemonNumber(pokemonData):** This function gets the Pokémon's number. It uses the Pokémon's data to get the ID number and formats it to always have 3 digits.
+
+* **showPokemonInfo(pokemonData):** This function displays the detailed information of a selected Pokémon. It uses the Pokémon's data to get information such as name, types, weight, height, etc. It also obtains additional information such as the Pokémon's egg groups and abilities. In addition, it uses the URL of the Pokémon's evolution chain to display the corresponding evolution chain.
+
+* **getEvolutionChain(evolutionChainData):** This function generates the HTML of a Pokémon's evolution chain. It uses the evolution chain data to step through each evolution stage and generate the corresponding HTML.
+
 ## Data Update
 
 Regarding the updating of the data, the idea of the encyclopedia is to give users the most up-to-date data, unfortunately this is not 100% possible today, although there is data on the Pokemon up to the ninth generation, no you have all the data necessary for the interface to maintain the level of quality that was proposed from the beginning. While this may be fixed over time, right now the API does not provide the necessary support for 9th generation Pokemon.
