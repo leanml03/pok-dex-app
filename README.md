@@ -98,7 +98,8 @@ The project is organized into the following files and folders:
 * #### Scripts folder
 **api_connect:** This script has modular functionality and is called from the HTML, its function is to call the required functions.
 **pi_getInfo:** This script is the one that contains the connection with the API as well as its data collection to return it to the HTML.
-### Integration with the PokeAPI: The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
+### Integration with the PokeAPI: 
+The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
 
 ## Data Update
 
