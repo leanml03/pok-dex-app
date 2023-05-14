@@ -84,7 +84,7 @@ As for the navigation is simple, the only thing you can do is scroll between the
 
 For any technical issues or queries related to the PokeAPI, I recommend contacting the PokeAPI support team directly. They are best equipped to help you with any specific API issues and provide you with the necessary support.
 
-You can find contact information and additional resources on the official PokeAPI website.
+You can find contact information and additional resources on the official PokeAPI website. [PokeAPI](https://pokeapi.co/about)
 
 
 ## Data Update
