@@ -77,9 +77,6 @@ In this section you can see the information of the selected Pokemon, this inform
 
 ![Screenshot 2023-05-13 235001](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/58e8e456-2b7b-4ac3-a70f-e49fb3bc0488)
 
-### Navigation
-
-As for the navigation is simple, the only thing you can do is scroll between the buttons that are generated in the nav in which the Pokemon available for data sampling are displayed.
 
 
 ## Technical Reference:
