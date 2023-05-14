@@ -88,17 +88,17 @@ Technologies used: The Pokedex application is developed using HTML, CSS and Java
 
 ### Project structure: 
 The project is organized into the following files and folders:
-* #### root
-**index.html:** This file contains the HTML structure of the application and defines the main elements and sections.
+#### root
+* **index.html:** This file contains the HTML structure of the application and defines the main elements and sections.
 
-* #### Styles folder
+#### Styles folder
 
-**main-styles.css:** Here are the CSS styles that are applied to the HTML elements to achieve the visual design of the application.
+* **main-styles.css:** Here are the CSS styles that are applied to the HTML elements to achieve the visual design of the application.
 
-* #### Scripts folder
-**api_connect:** This script has modular functionality and is called from the HTML, its function is to call the required functions.
+#### Scripts folder
+* **api_connect:** This script has modular functionality and is called from the HTML, its function is to call the required functions.
 
-**api_getInfo:** This script is the one that contains the connection with the API as well as its data collection to return it to the HTML.
+* **api_getInfo:** This script is the one that contains the connection with the API as well as its data collection to return it to the HTML.
 
 ### Integration with the PokeAPI: 
 The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
