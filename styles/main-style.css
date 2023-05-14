@@ -1,244 +1,250 @@
+/* Import the Roboto font from Google Fonts */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900);
 
-body{
-    font-family:"Calibri", sans-serif;
-    color: white;
-    background-color: #e34040;
-
-}
-.pokedex-box{
-    display: flex;
-    
+/* Styling for the body */
+body {
+  font-family: 'Roboto', sans-serif; /* Set the Roboto font as the primary font */
+  color: white; /* Set the text color to white */
+  background-color: #e34040; /* Set the background color */
 }
 
-
-
-
-
-.scroll-box{
- width: 27rem;
- height: 57rem;
- overflow: auto; 
- background-color: #700808;
- border-radius: 0.5rem;
- color: white;
- border: 0.2rem solid #ff8585;
- 
- 
-
- scrollbar-color: #e34040 #b13333;
- scrollbar-width: thin;
- scrollbar-color: transparent transparent; 
+/* Styling for the pokedex box */
+.pokedex-box {
+  display: flex; /* Display the elements in a flex layout */
 }
-.scroll-box ul{
-  margin-left: -2.6rem;
-  margin-top: 0.1rem;
-  
+
+/* Styling for the scroll box */
+.scroll-box {
+  width: 27rem; /* Set the width of the scroll box */
+  height: 57rem; /* Set the height of the scroll box */
+  overflow: auto; /* Enable scrolling for content exceeding the box height */
+  background-color: #700808; /* Set the background color */
+  border-radius: 0.5rem; /* Set the border radius */
+  color: white; /* Set the text color to white */
+  border: 0.2rem solid #ff8585; /* Set the border color and thickness */
+  scrollbar-color: #e34040 #b13333; /* Set the color of the scrollbar */
+  scrollbar-width: thin; /* Set the width of the scrollbar */
+  scrollbar-color: transparent transparent; /* Set the color of the scrollbar thumb and track */
 }
-.scroll-box span{
-  font-weight: 550;
-  font-size: 1rem;
+
+/* Styling for the list inside the scroll box */
+.scroll-box ul {
+  margin-left: -2.6rem; /* Adjust the left margin to align the list items */
+  margin-top: 0.1rem; /* Adjust the top margin */
 }
-.scroll-box .pokemon-number{
-  font-weight: lighter;
-  font-size: 0.7rem;
+
+/* Styling for the span elements inside the scroll box */
+.scroll-box span {
+  font-weight: 550; /* Set the font weight */
+  font-size: 1rem; /* Set the font size */
 }
+
+/* Styling for the pokemon number */
+.scroll-box .pokemon-number {
+  font-weight: lighter; /* Set the font weight to lighter */
+  font-size: 0.7rem; /* Set the font size */
+}
+
+/* Styling for the scrollbar */
 .scroll-box::-webkit-scrollbar {
-  /* Ancho del scrollbar para navegadores WebKit */
-  width: 1.2rem; 
-  border-radius: 0.5rem;
+  width: 1.2rem; /* Set the width of the scrollbar */
+  border-radius: 0.5rem; /* Set the border radius */
 }
+
 .scroll-box::-webkit-scrollbar-thumb {
-    background-color: #e34040; /* Color del thumb (agarre del scrollbar) */
-    border-radius: 0.3rem;
-    border: none;
+  background-color: #e34040; /* Set the color of the scrollbar thumb */
+  border-radius: 0.3rem; /* Set the border radius */
+  border: none; /* Remove the scrollbar thumb border */
 }
+
 .scroll-box::-webkit-scrollbar-track {
-    background-color: #b13333; /* Color del track (fondo del scrollbar) */
-    border-radius: 0.5rem;
+  background-color: #b13333; /* Set the color of the scrollbar track */
+  border-radius: 0.5rem; /* Set the border radius */
 }
 .scroll-box .button-style{
-    display: flex; /* Mostrar el contenido en línea */
-    align-items: center; /* Alinear verticalmente el contenido al centro */
-    color: white;
-    background-color: #480202;
-    width: 25.9rem;
-    height: 5rem;
-    margin-top: 0.07rem;
-    font-weight: bolder;
-    text-align: left;
-    border: none; /* Quita los bordes del botón */
-    
+  display: flex; /* Display the content in line */
+  align-items: center; /* Vertically align the content to the center */
+  color: white;
+  background-color: #480202;
+  width: 25.9rem;
+  height: 5rem;
+  margin-top: 0.07rem;
+  font-weight: bolder;
+  text-align: left;
+  border: none; /* Remove button borders */
 }
+
 .scroll-box .button-style:active{
-    background-color: #700808;
+  background-color: #700808; /* Background color when button is active */
 }
 
 .scroll-box .button-style:hover{
-    background-color: #e34040;
+  background-color: #e34040; /* Background color when button is hovered */
 }
+
 .scroll-box .button-style.clicked{
-    background-color: #700808;
+  background-color: #700808; /* Background color when button is clicked */
 }
+
 .pokemon-icon {
-    width: 50px; /* Ajusta el ancho del sprite según tus necesidades */
-    height: 40px; /* Ajusta la altura del sprite según tus necesidades */
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+  width: 3.5rem; /* Adjust the sprite width as needed */
+  height: 2.5rem; /* Adjust the sprite height as needed */
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
+
 .pokemon-number{
-    margin-left: auto;
-    margin-right: 1rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  color: white;
 }
-
-
-
 
 .info-box {
-    flex-direction: column;
-    display: flexbox;
-    align-items: center;
-    width: 88rem;
-    height: 57rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    margin-left: 2rem;
-    
-    color: black;
-    border: 0.2rem solid #ff8585;
-;
-  }
-.info-box .information{
-    display: grid;
-    grid-template-rows: auto auto 1fr; /* Ajusta la distribución de filas */
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "pokemon-data pokemon-details"
-      "pokemon-type pokemon-type"
-      "pokemon-evolution pokemon-evolution";
-    text-indent: 2rem;
-    margin-top: 1rem;
+  flex-direction: column;
+  display: flexbox;
+  align-items: center;
+  width: 88rem;
+  height: 57rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-left: 2rem;
+  color: black;
+  border: 0.2rem solid #ff8585;
 }
-  .pokemon-data {
-    grid-area: pokemon-data;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    word-spacing: 8rem;
-  }
-  
-  .pokemon-details {
-    grid-area: pokemon-details;
-    margin-bottom: 9rem;
-  }
-  
 
-  .evolution-title{
-    grid-area: pokemon-evolution;
-    display: flex;
-   text-indent  : 40rem;
-   margin: -1rem;
-   
+.info-box .information{
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* Adjust the row distribution */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "pokemon-data pokemon-details"
+    "pokemon-type pokemon-type"
+    "pokemon-evolution pokemon-evolution";
+  text-indent: 2rem;
+  margin-top: 1rem;
+}
 
-  }
-  .evolution-title::before {
-    content: "";
-    position: absolute;
-    left: 25%;
-    right: 0%;
-    top: 44%;
-    border-top: 0.15rem solid;
-    border-image: linear-gradient(to right, transparent, #e34040, transparent);
-    border-image-slice: 1;
-  }
-  
-  .pokemon-evolution {
-    grid-area: pokemon-evolution;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-  }
+.pokemon-data {
+  grid-area: pokemon-data;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  word-spacing: 8rem;
+}
 
-  .pokemon-image {
-    margin-top: -1.5rem;
-    width: 240px; /* Ajusta el ancho de la imagen según tus necesidades */
-    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
-  }
-  .evolution-stage{
-    flex: 1 0 200px; /* Establece el ancho mínimo y máximo de cada etapa de evolución */
-    padding: 10px; /* Espacio entre las etapas de evolución */
-    box-sizing: border-box; /* Incluye el padding dentro del ancho del elemento */
-    text-align: center; /* Centra el contenido dentro de cada etapa de evolución */
-  }
-  .pokemon-evolution .evolution-stage img {
-    max-width: 100%; /* Establece el ancho máximo de las imágenes dentro de cada etapa */
-    height: auto; /* Permite que la altura de las imágenes se ajuste automáticamente */
-  }
+.pokemon-details {
+  font-family:'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  grid-area: pokemon-details;
+  margin-bottom: 9rem;
+}
 
-  
-  .evolution-image{
-    width: 9.5rem; /* Ajusta el ancho de la imagen según tus necesidades */
-    height: auto; 
-  }
-  .evolution-arrow {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23e34040' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0' /%3E%3Cpath d='M15 16l4 -4' /%3E%3Cpath d='M15 8l4 4' /%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    top: 5rem;
-    background-size: contain;
-  }
-  
-  
+.evolution-title{
+  grid-area: pokemon-evolution;
+  display: flex;
+  text-indent: 40rem;
+  margin: -1rem;
+}
+
+.evolution-title::before {
+  content: "";
+  position: absolute;
+  left: 25%;
+  right: 0%;
+  top: 44%;
+  border-top: 0.15rem solid;
+  border-image: linear-gradient(to right, transparent, #e34040, transparent);
+  border-image-slice: 1;
+}
+
+.pokemon-evolution {
+  grid-area: pokemon-evolution;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pokemon-image {
+  margin-top: -1.5rem;
+  width: 16rem; /* Adjust the image width as needed */
+  height: auto; /* The height will adjust automatically to maintain proportion */
+}
+.evolution-stage{
+  flex: 1 0 200px; /* Set the minimum and maximum width of each evolution stage */
+  padding: 10px; /* Space between evolution stages */
+  box-sizing: border-box; /* Include padding within the element's width */
+  text-align: center; /* Center the content within each evolution stage */
+}
+
+.pokemon-evolution .evolution-stage img {
+  max-width: 100%; /* Set the maximum width of images within each stage */
+  height: auto; /* Allow the height of images to adjust automatically */
+}
 
   
-  .info-box .search {
-    grid-area: pokemon-details;
-    display: flex;
-    justify-content: flex-end; /* Alinear a la derecha */
-    margin-left: auto;
-    margin-right: 1rem;
-    border-color: white;
-    margin-top: 0.5rem;
-  }
-  
-  .info-box .search button {
-    background-color: white;
-    border: none;
-  }
-  .info-box .search input{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1rem;
-    border-color: lightgray;
-    border-radius: 0.5rem;
-    border-style: solid;
-    text-indent: 1rem;
-  }
-  .info-box .search input:focus{
-    border-color: #ff8585;
-    color: #e34040;
-    outline: #ff8585;
-    
+.evolution-image{
+  width: 8.5rem; /* Adjust the width of the image as needed */
+  height: auto; /* Allow the height of the image to adjust automatically */
+}
 
-  }
+.evolution-arrow {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-arrow-narrow-right' width='24' height='24' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23e34040' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0' /%3E%3Cpath d='M15 16l4 -4' /%3E%3Cpath d='M15 8l4 4' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  top: 5rem;
+  background-size: contain;
+}
 
-  .spinner {
-    width: 40px;
-    height: 40px;
-    margin: 20px auto;
-    border-radius: 50%;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #ff8585;
-    animation: spin 1s infinite linear;
-  }
-  
-  @keyframes spin {
-    0% {
+.info-box .search {
+  grid-area: pokemon-details;
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  margin-left: auto;
+  margin-right: 1rem;
+  border-color: white;
+  margin-top: 0.5rem;
+}
+
+.info-box .search button {
+  background-color: white;
+  border: none;
+}
+
+.info-box .search input{
+  font-size: 1rem;
+  border-color: lightgray;
+  border-radius: 0.5rem;
+  border-style: solid;
+  text-indent: 1rem;
+}
+
+.info-box .search input:focus{
+  border-color: #ff8585;
+  color: #e34040;
+  outline: #ff8585;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #ff8585;
+  animation: spin 1s infinite linear;
+}
+
+/*Spinner animation*/
+@keyframes spin {    
+  0% {
       transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
   }
+  100% {
+      transform: rotate(360deg);
+  }
+}

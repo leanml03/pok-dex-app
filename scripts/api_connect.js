@@ -6,6 +6,6 @@ function connectAPI() {
     searchPokemon(); //Module dedicated to search the Pokemon with the input text
 }
 connectAPI(); //Function Call
-export{connectAPI}; //Export the module function
+
 
 

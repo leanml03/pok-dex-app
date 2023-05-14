@@ -1,3 +1,4 @@
+//API Connection and Get Data to display in the HTML
 //Const, Variables used to get the data, flags or storage data.
 let offset = 0; //Current position in scroll
 const limit = 20; //Limit of number Pokemon to show
@@ -5,27 +6,31 @@ let isLoading = false; //State of Loading (flag)
 
 // Function to load more pokemon after the limit (20) when we are scrolling.
 async function loadMorePokemon() {
-  //Not load if the system is loading
+  // Only load if the system is not already loading
   if (isLoading) {
     return;
   }
   isLoading = true;
-  //Connection with the API (PokeAPI)
+
+  // Connection with the API (PokeAPI)
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
-    const data = await response.json(); //Storage the data in JSON format.
+    const data = await response.json(); // Store the data in JSON format.
+
     const pokemonList = document.getElementById('pokemon-list');
-    data.results.forEach(async (pokemon) => {
-      const pokemonData = await fetchPokemonData(pokemon.url); //Get the single pokemon data URL
-      const pokemonButton = createPokemonButton(pokemonData); //Go to the Function to create the button
-      pokemonList.appendChild(pokemonButton); //Add the button to the Nav
+    const pokemonPromises = data.results.map(async (pokemon) => {
+      const pokemonData = await fetchPokemonData(pokemon.url); // Get the single pokemon data URL
+      const pokemonButton = createPokemonButton(pokemonData); // Create the button
+      pokemonList.appendChild(pokemonButton); // Add the button to the Nav
     });
 
-    offset += limit; //Increase the limit
+    await Promise.all(pokemonPromises); // Wait for all the Pokemon buttons to be created
+
+    offset += limit; // Increase the limit
   } catch (error) {
     console.log('Error:', error);
   } finally {
-    isLoading = false; //Set that the function is currently is not loading.
+    isLoading = false; // Set that the function is currently not loading.
   }
 }
 
@@ -74,7 +79,7 @@ export async function loadPokemonData() {
   }
 }
 
-//We proceed to obtain the information of a specific pokemon.
+//Proceed to obtain the information of a specific pokemon.
 async function fetchPokemonData(url) {
   const response = await fetch(url); //Do the fetch to the URL (It's the single pokemon URL)
   return response.json();//Return the single pokemon data.
@@ -143,7 +148,7 @@ function createPokemonButton(pokemonData) {
   pokemonButton.classList.add('button-style');
   pokemonButton.addEventListener('click', () => {
     if (selectedButton) {
-      selectedButton.classList.remove('clicked'); // Remove previous button's color
+      selectedButton.classList.remove('clicked'); // Remove previous button color
     }
     showPokemonInfo(pokemonData);
     pokemonButton.classList.add('clicked'); // Add color to the current button
@@ -210,12 +215,12 @@ function showPokemonInfo(pokemonData) {
           pokemonDataElement.innerHTML = `
             <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}" class="pokemon-image">
             <h1>${capitalizeFirstLetter(pokemonData.name)}</h1>
-            <p>${types}</p>
+            <p id="poke-types">${types}</p>
           `;
           pokemonDetailsElement.innerHTML = `
             <h2 style="font-weight: bold;">Information</h2>
             <p><strong>Weight:</strong> ${weight} kg</p>
-            <p><strong>Height:</strong> ${height} cm's</p>
+            <p><strong>Height:</strong> ${height} m</p>
             <p><strong>Species:</strong> ${species}</p>
             <p><strong>Egg Groups:</strong> ${eggGroups}</p>
             <p><strong>Abilities:</strong> ${abilities}</p>
@@ -249,10 +254,9 @@ function showPokemonInfo(pokemonData) {
 
 // Function to generate the evolution chain HTML
 function getEvolutionChain(evolutionChainData) {
-  const pokemonListElement = document.getElementById('pokemon-list');
   let evolutionChain = '';
 
-  // Recursive function to process each evolution stage
+  // Recursive function to process each evolution stage (species/pokemon)
   const processEvolution = (evolutionData) => {
     const pokemonName = capitalizeFirstLetter(evolutionData.species.name);
     const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${evolutionData.species.url.split('/').slice(-2, -1)}.png`;

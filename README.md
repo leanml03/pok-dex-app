@@ -2,15 +2,16 @@
 ![Screenshot 2023-05-13 232948](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/1b4b62bf-8523-4d6e-b892-09165895268e)
 
 ## Introduction
-Ever since I was a kid I have always been drawn to the many different spices that Pokémon possesses, creating an interactive encyclopedia becomes an exciting challenge for fans and lovers of these creatures. Using JavaScript, CSS and HTML, along with the PokeAPI as a source of information, we can embark on a journey to develop a digital encyclopedia that captures the essence of this great universe.
+Ever since I was a kid I have always been drawn to the many different spices that Pokémon possesses, creating an interactive encyclopedia becomes an exciting challenge for fans and lovers of these creatures. Using JavaScript, CSS and HTML, along with the PokeAPI as a source of information, i can embark on a journey to develop a digital encyclopedia that captures the essence of this great universe.
 
 The goal of this interactive Pokémon encyclopedia is to provide users with a comprehensive platform full of information that allows them to explore the wide variety of Pokémon out there. Leveraging JavaScript capabilities, it will provide an interactive experience that allows users to search, filter and explore information about their favorite Pokémon, as well as discover new Pokémon and learn about their abilities, evolutions and more.
 
-To structure and attractively present the information, we will use HTML and CSS. With HTML, we will define the structure of the encyclopedia, creating intuitive and easy-to-navigate sections. CSS will allow us to apply visual styles that reflect the Pokémon theme, with colorful designs, eye-catching graphics and an attractive interface that immerses users in the Pokémon world as they explore the encyclopedia.
+To structure and attractively present the information, i will use HTML and CSS. With HTML, i will define the structure of the encyclopedia, creating intuitive and easy-to-navigate sections. CSS will allow us to apply visual styles that reflect the Pokémon theme, with colorful designs, eye-catching graphics and an attractive interface that immerses users in the Pokémon world as they explore the encyclopedia.
 
-The real challenge of our encyclopedia is the integration of the PokeAPI. This API will provide us with a constant stream of up-to-date information about Pokémon, including data such as their name, type, abilities, description, evolutions and more. By connecting to the PokeAPI, we ensure that our encyclopedia is always up-to-date and that users have access to the most accurate and complete information about Pokémon.
+The real challenge of our encyclopedia is the integration of the PokeAPI. This API will provide us with a constant stream of up-to-date information about Pokémon, including data such as their name, type, abilities, description, evolutions and more. By connecting to the PokeAPI, i ensure that our encyclopedia is always up-to-date and that users have access to the most accurate and complete information about Pokémon.
 
 By combining JavaScript, CSS, HTML and the PokeAPI, I will create an interactive Pokémon encyclopedia that will become a valuable tool for Pokémon players, collectors and enthusiasts. 
+
 ## Prerequisites
 * Basic knowledge of Pokemon or interest in learning.
 
@@ -40,11 +41,11 @@ You can run the application in other ways, obviously, but since it was made and 
 
 * Click "Install" to install the extension.
 
-* Open your Interactive Pokémon Encyclopedia project folder in Visual Studio Code. You can do this by selecting "File" in the menu bar and then "Open Folder", then select the project folder.
+* Open the APP project folder in Visual Studio Code. You can do this by selecting "File" in the menu bar and then "Open Folder", then select the project folder.
 
 * Once you've opened the project folder, find your encyclopedia's main HTML file and open it in Visual Studio Code.
 
-* Right-click inside the HTML file and select the "Open with Live Server" option from the context menu. This will open your encyclopedia on a local server and run it in your default web browser.
+* Right-click inside the HTML file and select the "Open with Live Server" option from the context menu. This will open the app on a local server and run it in your default web browser.
 
 You should now be able to view and explore your Interactive Pokémon Encyclopedia in your local web browser! Make sure to keep Visual Studio Code open while you use the app so that the local server stays running.
 
