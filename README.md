@@ -54,12 +54,12 @@ You should now be able to view and explore your Interactive Pokémon Encyclopedi
 At the beginning you have access to the basic interface in which you can see a list of Pokemon on the left side of the page, as well as a scroll where you can go down, as you go down you will be able to see more and more species of Pokemon, the order is this list is numerical according to position in the original Pokedex. 
 You can also see a text entry next to a magnifying glass, this is used to search for a particular species. 
 
-### Nav
+### Navigation
 In the browser you will be able to scroll down until you find the species of interest. As you scroll down you will find more species. When you click on a species you will see the Pokemon's information displayed in the information section.
 
 ![Untitled video - Made with Clipchamp (1)](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/e98190c2-d8e1-4f3c-b474-f18e634f8b9e)
 
-### Search!
+### Search
 
 In the search section you can enter the name of the Pokemon you want to obtain the information, by inserting each letter the data will be updated in the nav bar where you will see as a result the Pokemon that have in their name the series of letters entered. To display the information just click on the corresponding button in the nav.
 
