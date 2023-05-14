@@ -81,6 +81,25 @@ In this section you can see the information of the selected Pokemon, this inform
 
 As for the navigation is simple, the only thing you can do is scroll between the buttons that are generated in the nav in which the Pokemon available for data sampling are displayed.
 
+
+##Technical Reference:
+
+Technologies used: The Pokedex application is developed using HTML, CSS and JavaScript for the frontend. In addition, the PokeAPI is used as a data source to obtain information about Pokémon.
+
+### Project structure: 
+The project is organized into the following files and folders:
+
+##### index.html: This file contains the HTML structure of the application and defines the main elements and sections.
+
+#### Styles folder
+
+##### main-styles.css: Here are the CSS styles that are applied to the HTML elements to achieve the visual design of the application.
+
+#### Scripts folder
+##### api_connect: This script has modular functionality and is called from the HTML, its function is to call the required functions.
+##### api_getInfo: This script is the one that contains the connection with the API as well as its data collection to return it to the HTML.
+### Integration with the PokeAPI: The application connects to the PokeAPI using HTTP calls to obtain data about the Pokémon, such as its name, type, skills and description. URLs provided by the API are used to access information about each individual Pokémon.
+
 ## Data Update
 
 Regarding the updating of the data, the idea of the encyclopedia is to give users the most up-to-date data, unfortunately this is not 100% possible today, although there is data on the Pokemon up to the ninth generation, no you have all the data necessary for the interface to maintain the level of quality that was proposed from the beginning. While this may be fixed over time, right now the API does not provide the necessary support for 9th generation Pokemon.
