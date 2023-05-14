@@ -161,6 +161,7 @@ body{
   }
 
   .pokemon-image {
+    margin-top: -1.5rem;
     width: 240px; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
   }
@@ -221,4 +222,23 @@ body{
     outline: #ff8585;
     
 
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #ff8585;
+    animation: spin 1s infinite linear;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
