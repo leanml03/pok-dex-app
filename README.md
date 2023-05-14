@@ -1,5 +1,5 @@
 # Pokedex App
-
+![Screenshot 2023-05-13 232948](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/1b4b62bf-8523-4d6e-b892-09165895268e)
 
 ## Introduction
 Ever since I was a kid I have always been drawn to the many different spices that Pokémon possesses, creating an interactive encyclopedia becomes an exciting challenge for fans and lovers of these creatures. Using JavaScript, CSS and HTML, along with the PokeAPI as a source of information, we can embark on a journey to develop a digital encyclopedia that captures the essence of this great universe.
@@ -27,10 +27,13 @@ At the beginning you have access to the basic interface in which you can see a l
 You can also see a text entry next to a magnifying glass, this is used to search for a particular species. 
 
 ### Nav
+![Untitled video - Made with Clipchamp (1)](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/e98190c2-d8e1-4f3c-b474-f18e634f8b9e)
 In the browser you will be able to scroll down until you find the species of interest. As you scroll down you will find more species. When you click on a species you will see the Pokemon's information displayed in the information section.
 
-### Search
+### Search!
+![Untitled video - Made with Clipchamp](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/d160675b-5387-420a-818e-2ac6ff5e094a)
 In the search section you can enter the name of the Pokemon you want to obtain the information, by inserting each letter the data will be updated in the nav bar where you will see as a result the Pokemon that have in their name the series of letters entered. To display the information just click on the corresponding button in the nav.
+
 
 ### Information
 In this section you can see the information of the selected Pokemon, this information is divided into three parts:
