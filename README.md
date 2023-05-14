@@ -12,16 +12,42 @@ The real challenge of our encyclopedia is the integration of the PokeAPI. This A
 
 By combining JavaScript, CSS, HTML and the PokeAPI, I will create an interactive Pokémon encyclopedia that will become a valuable tool for Pokémon players, collectors and enthusiasts. 
 ## Prerequisites
-Basic knowledge of Pokemon or interest in learning.
+* Basic knowledge of Pokemon or interest in learning.
 
-Have an updated web browser, as well as an internet connection at all times.
+* Have an updated web browser, as well as an internet connection at all times.
+
+Before you begin, make sure you have the following installed:
+**Visual Studio Code:** A popular and free integrated development environment (IDE). You can download it from the official website: [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Installation and Config
-The application has been created in Visual Studio Code, it is recommended to use this tool for the execution of the application together with the Live Server extension which gives us the possibility of hosting the application to a local server of the machine, this is necessary to be able to run the application properly.
+The application has been created in **Visual Studio Code**, it is recommended to use this tool for the execution of the application together with the Live Server extension which gives us the possibility of hosting the application to a local server of the machine, this is necessary to be able to run the application properly.
 In terms of installing a specific programming language, it is not necessary, the tools used are already included in Visual Studio Code.
 You can run the application in other ways, obviously, but since it was made and tested on said platform, it is recommended to use it.
 
 ![Untitled video - Made with Clipchamp (2)](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/bfba525c-7923-46c1-9787-2108c262d9ad)
+
+## Configuration steps
+
+* Download and install Visual Studio Code by following the instructions provided on the official website.
+
+* Open Visual Studio Code on your computer.
+
+* Installs the "Live Server" extension for Visual Studio Code. You can do it by following these steps:
+
+* Click the extensions icon in the left sidebar or press Ctrl+Shift+X (Windows/Linux) or Cmd+Shift+X (Mac) to open the Extensions Manager.
+
+* Search for "Live Server" in the search box.
+
+* Click "Install" to install the extension.
+
+* Open your Interactive Pokémon Encyclopedia project folder in Visual Studio Code. You can do this by selecting "File" in the menu bar and then "Open Folder", then select the project folder.
+
+* Once you've opened the project folder, find your encyclopedia's main HTML file and open it in Visual Studio Code.
+
+* Right-click inside the HTML file and select the "Open with Live Server" option from the context menu. This will open your encyclopedia on a local server and run it in your default web browser.
+
+You should now be able to view and explore your Interactive Pokémon Encyclopedia in your local web browser! Make sure to keep Visual Studio Code open while you use the app so that the local server stays running.
+
 
 ## Basic use
 ### Home
@@ -50,10 +76,17 @@ In this section you can see the information of the selected Pokemon, this inform
 
 ![Screenshot 2023-05-13 235001](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/58e8e456-2b7b-4ac3-a70f-e49fb3bc0488)
 
-
-
 ### Navigation
+
 As for the navigation is simple, the only thing you can do is scroll between the buttons that are generated in the nav in which the Pokemon available for data sampling are displayed.
 
+## Maintenance and Support
+
+For any technical issues or queries related to the PokeAPI, I recommend contacting the PokeAPI support team directly. They are best equipped to help you with any specific API issues and provide you with the necessary support.
+
+You can find contact information and additional resources on the official PokeAPI website.
+
+
 ## Data Update
+
 Regarding the updating of the data, the idea of the encyclopedia is to give users the most up-to-date data, unfortunately this is not 100% possible today, although there is data on the Pokemon up to the ninth generation, no you have all the data necessary for the interface to maintain the level of quality that was proposed from the beginning. While this may be fixed over time, right now the API does not provide the necessary support for 9th generation Pokemon.
