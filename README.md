@@ -20,6 +20,7 @@ Have an updated web browser, as well as an internet connection at all times.
 The application has been created in Visual Studio Code, it is recommended to use this tool for the execution of the application together with the Live Server extension which gives us the possibility of hosting the application to a local server of the machine, this is necessary to be able to run the application properly.
 In terms of installing a specific programming language, it is not necessary, the tools used are already included in Visual Studio Code.
 You can run the application in other ways, obviously, but since it was made and tested on said platform, it is recommended to use it.
+![Untitled video - Made with Clipchamp (2)](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/bfba525c-7923-46c1-9787-2108c262d9ad)
 
 ## Basic use
 ### Home
