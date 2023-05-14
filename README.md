@@ -48,6 +48,8 @@ In this section you can see the information of the selected Pokemon, this inform
 
 **Evolutionary Line:** Here you can see the evolutionary line of the Pokemon, each one has between 0 and 2 evolutions, although there may also be variants or different evolutions, all these aspects are taken into account when displaying the information.
 
+![Screenshot 2023-05-13 235001](https://github.com/leanml03/pok-dex-app.github.io/assets/39351969/dadbe7c3-0caa-4c6a-b548-72b784e4dae4)
+
 
 ### Navigation
 As for the navigation is simple, the only thing you can do is scroll between the buttons that are generated in the nav in which the Pokemon available for data sampling are displayed.
