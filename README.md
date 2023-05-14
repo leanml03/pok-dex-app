@@ -80,6 +80,10 @@ In this section you can see the information of the selected Pokemon, this inform
 
 As for the navigation is simple, the only thing you can do is scroll between the buttons that are generated in the nav in which the Pokemon available for data sampling are displayed.
 
+## Data Update
+
+Regarding the updating of the data, the idea of the encyclopedia is to give users the most up-to-date data, unfortunately this is not 100% possible today, although there is data on the Pokemon up to the ninth generation, no you have all the data necessary for the interface to maintain the level of quality that was proposed from the beginning. While this may be fixed over time, right now the API does not provide the necessary support for 9th generation Pokemon.
+
 ## Maintenance and Support
 
 For any technical issues or queries related to the PokeAPI, I recommend contacting the PokeAPI support team directly. They are best equipped to help you with any specific API issues and provide you with the necessary support.
@@ -87,6 +91,4 @@ For any technical issues or queries related to the PokeAPI, I recommend contacti
 You can find contact information and additional resources on the official PokeAPI website: [PokeAPI](https://pokeapi.co/about)
 
 
-## Data Update
 
-Regarding the updating of the data, the idea of the encyclopedia is to give users the most up-to-date data, unfortunately this is not 100% possible today, although there is data on the Pokemon up to the ninth generation, no you have all the data necessary for the interface to maintain the level of quality that was proposed from the beginning. While this may be fixed over time, right now the API does not provide the necessary support for 9th generation Pokemon.
