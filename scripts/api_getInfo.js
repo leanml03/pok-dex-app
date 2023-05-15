@@ -93,7 +93,6 @@ export async function searchPokemon(){
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=898`);
     const data = await response.json();
     const searchInput = document.querySelector('.search_input'); // Search Input and button elements
-    const searchButton = document.getElementById('btn-search');
     const pokemonListElement = document.getElementById('pokemon-list');
     searchInput.addEventListener('input', () => { // Event to get the current string in the input
       const searchTerm = searchInput.value.toLowerCase();
